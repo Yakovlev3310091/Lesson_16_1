@@ -104,7 +104,7 @@ def orders():
             return e
 
 
-app.route('/orders/<int:order_id>', methods=['GET', 'PUT', 'DELETE'])
+@app.route('/orders/<int:order_id>', methods=['GET', 'PUT', 'DELETE'])
 def one_order(order_id):
     if request.method == 'GET':
         order = Order.query.get(order_id)
@@ -141,7 +141,6 @@ def one_order(order_id):
         return f'Пользователь с id {order_id} успешно удален', 200
 
 
-
 @app.route('/offers', methods=['GET', 'POST'])
 def offers():
     if request.method == 'GET':
@@ -166,7 +165,7 @@ def offers():
             return e
 
 
-app.route('/offers/<int:offer_id>', methods=['GET', 'PUT', 'DELETE'])
+@app.route('/offers/<int:offer_id>', methods=['GET', 'PUT', 'DELETE'])
 def one_offer(offer_id):
     if request.method == 'GET':
         offer = Offer.query.get(offer_id)
